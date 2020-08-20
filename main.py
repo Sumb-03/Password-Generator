@@ -1,6 +1,7 @@
 import random
 from tkinter import *
 import tkinter as tk
+import os
 
 # Window
 
@@ -11,12 +12,6 @@ window.config(bg='#323232')
 window.iconphoto(False, PhotoImage(file='C:/Users/User/Desktop/123.png'))
 
 # Create the Password
-
-def shuffle(string):
-  tempList = list(string)
-  random.shuffle(tempList)
-  return ''.join(tempList)
-
 
 uppercase1 = chr(random.randint(65, 90))
 uppercase2 = chr(random.randint(65, 90))
@@ -36,15 +31,17 @@ symbol2 = chr(random.randint(33, 47))
 symbol3 = chr(random.randint(33, 47))
 symbol4 = chr(random.randint(33, 47))
 
-
 password = str(uppercase1) + str(uppercase2) + str(lowercase1) + str(lowercase2) + str(lowercase3) + str(lowercase4) + str(number1) + str(number2) + str(number3) + str(number4) + str(symbol1) + str(symbol2) + str(symbol3) + str(symbol4)
-password = shuffle(password)
+
 
 # Generator Button
 
 def password_generator():
     screen.delete(0, END)
-    screen.insert(0, password)
+    password1 = list(password)
+    random.shuffle(password1)
+    screen.insert(0, password1)
+
 
 # Inside Window
 
